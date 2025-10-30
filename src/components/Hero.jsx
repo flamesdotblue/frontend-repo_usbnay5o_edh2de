@@ -1,18 +1,19 @@
 import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
+import MascotFox from "./MascotFox";
 
 export default function Hero() {
   return (
     <section className="relative h-[78vh] min-h-[560px] w-full overflow-hidden bg-slate-950">
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/Gt5HUob8aGDxOUep/scene.splinecode"
+          scene="https://prod.spline.design/xa5cMvp2ipgnnda2/scene.splinecode"
           style={{ width: "100%", height: "100%" }}
         />
       </div>
 
       {/* Soft gradient overlays for depth (non-blocking) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/30 via-slate-950/20 to-slate-950"></div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/30 to-slate-950"></div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950"></div>
 
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
@@ -23,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-slate-900/60 px-3 py-1 text-xs text-slate-300 shadow-lg shadow-blue-900/20 backdrop-blur"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
             Premium University Merch • New Season Drop
           </motion.div>
 
@@ -75,6 +76,9 @@ export default function Hero() {
               Bestsellers
             </a>
           </motion.div>
+        </div>
+        <div className="ml-auto hidden md:block">
+          <MascotFox className="w-28 h-28" />
         </div>
       </div>
     </section>
