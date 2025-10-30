@@ -1,21 +1,17 @@
-import Spline from "@splinetool/react-spline";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import MascotFox from "./MascotFox";
+import HexBackground from "./HexBackground";
+import FoxWanderer from "./FoxWanderer";
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+
   return (
-    <section className="relative h-[78vh] min-h-[560px] w-full overflow-hidden bg-slate-950">
-      <div className="absolute inset-0">
-        <Spline
-          scene="https://prod.spline.design/iO74mq3KeYTXVmpB/scene.splinecode"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
+    <section ref={sectionRef} className="relative h-[78vh] min-h-[560px] w-full overflow-hidden bg-slate-950">
+      {/* Interactive hexagonal background */}
+      <HexBackground />
 
-      {/* Soft gradient overlays for depth (non-blocking) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/90"></div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950"></div>
-
+      {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <motion.div
@@ -77,10 +73,10 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
-        <div className="ml-auto hidden md:block">
-          <MascotFox className="w-28 h-28" />
-        </div>
       </div>
+
+      {/* The CAU fox mascot gently roams around the hero */}
+      <FoxWanderer containerRef={sectionRef} />
     </section>
   );
 }
